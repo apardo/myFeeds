@@ -1,16 +1,15 @@
 class Api::ItemsController < Api::BaseController
 
-  before_action :set_feed, only: [:index]
   before_action :set_item, only: [:show, :update, :destroy]
 
   # GET /feeds
   def index
-    respond_with :api, @feed.items.order(published_at: :desc)
+    respond_with :api, Item.order(published_at: :desc)
   end
  
   # GET /feeds/1
   def show
-    respond_with :api, @feed
+    respond_with :api, @item
   end
  
   # POST /feeds
@@ -33,10 +32,6 @@ class Api::ItemsController < Api::BaseController
   # Use callbacks to share common setup or constraints between actions.
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def set_feed
-    @feed = Feed.find(params[:feed_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
