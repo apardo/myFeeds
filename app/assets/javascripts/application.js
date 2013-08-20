@@ -17,6 +17,7 @@
 //= require angular-resource
 //= require app/main
 //= require app/factories/feed_factory
+//= require app/factories/item_factory
 //= require app/controllers/application_controller
 //= require app/controllers/mainnav_controller
 //= require app/controllers/home_controller

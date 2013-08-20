@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('myFeeds')
-	.controller('FeedsShowCtrl', ['$scope', '$location', '$routeParams', 'FeedFactory',
-        function($scope, $location, $routeParams, FeedFactory) {
+	.controller('FeedsShowCtrl', ['$scope', '$location', '$routeParams', 'FeedFactory', 'ItemFactory',
+        function($scope, $location, $routeParams, FeedFactory, ItemFactory) {
 
         //Grab the feed from the server
         $scope.feed = FeedFactory.get({id: $routeParams.id});
+        // Gram the items from the feed
+        $scope.items = ItemFactory.query({feedId: $routeParams.id});
 
         //Destroy method for deleting a feed
     	$scope.destroy = function() {
