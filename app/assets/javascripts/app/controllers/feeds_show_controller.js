@@ -15,5 +15,24 @@ angular.module('myFeeds')
             	$scope.feed = [];
                 $location.path('/feeds');
         	});
-    	}        
+    	}   
+
+        $scope.fetchFeed = function(feed) {
+            parseRSS(feed.feedurl, function(rss) {
+                //var baseItems = Restangular.all('items');
+                //baseItems.post(rss.entries);
+                console.log(rss);
+            });
+        }
+
+        function parseRSS(url, callback) {
+            $.ajax({
+                url: '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q='
+                    + encodeURIComponent(url),
+                dataType: 'json',
+                success: function(data) {
+                    callback(data.responseData.feed);
+                }
+            });
+        }     
 	}]);
