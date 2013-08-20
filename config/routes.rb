@@ -1,7 +1,9 @@
 Myfeeds::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
-    resources :feeds, only: [:index, :show, :create, :update, :destroy]
+    resources :feeds, only: [:index, :show, :create, :update, :destroy] do
+      resources :items, only: [:index, :show, :create, :update, :destroy]
+    end
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
