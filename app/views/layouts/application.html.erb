@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myFeeds">
+  <head>
+  	<meta charset="utf-8">
+    <title>myFeeds</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  	<%= stylesheet_link_tag    "application", media: "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+  
+   <div class="navbar navbar-inverse navbar-fixed-top" ng-controller="MainNavCtrl">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a id="logo" class="navbar-brand" href="#/" ng-click="removeLink()">myFeeds</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul id="mainNav" class="nav navbar-nav">
+            <li id="news" ng-click="setLink('news')"><a href="#/news">Novedades</a></li>
+            <li id="feeds" ng-click="setLink('feeds')"><a href="#/feeds">Feeds</a></li>
+            <li id="contact" ng-click="setLink('contact')"><a href="#/contact">Contacto</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <div class="the-content" ng-view>Loading...</div>
+
+    <div class="container">
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+
+    </div>
+
+	<%= javascript_include_tag "application" %>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

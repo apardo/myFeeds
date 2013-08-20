@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+    <div class="col-md-12">
+      <h1>Feeds</h1>
+
+      <a href="#/feeds/new" class="btn btn-info">Añadir</a>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>URL</th>
+            <th>URL Feed</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody ng-controller="FeedsCtrl">
+          <tr ng-repeat="feed in feeds">
+            <td><a href="#/feeds/{{feed.id}}">{{feed.title}}</td>
+            <td>{{feed.url}}</td>
+            <td>{{feed.feedurl}}
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
