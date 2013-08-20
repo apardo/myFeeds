@@ -1,9 +1,10 @@
-<div class="container">
+<div class="container" ng-controller="FeedsShowCtrl">
 	<div class="row">
     <div class="col-md-12">
       <h1>Feed: {{feed.title}}</h1>
 
-		<a href="#/feeds" class="btn btn-danger btn-xs">Volver</a>
+		<a href="#/feeds" class="btn btn-warning btn-xs">Volver</a>
+		<a href="" class="btn btn-danger btn-xs" ng-click="destroy()">Eliminar</a>
     </div>
   </div>
 </div>
