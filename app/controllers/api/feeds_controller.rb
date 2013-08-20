@@ -4,7 +4,7 @@ class Api::FeedsController < Api::BaseController
 
   # GET /feeds
   def index
-    respond_with :api, Feed.all
+    respond_with :api, Feed.order(created_at: :desc).all
   end
  
   # GET /feeds/1

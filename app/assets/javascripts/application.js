@@ -22,6 +22,7 @@
 //= require app/controllers/home_controller
 //= require app/controllers/news_controller
 //= require app/controllers/feeds_controller
+//= require app/controllers/feeds_show_controller
 //= require app/controllers/feeds_new_controller
 //= require app/controllers/contact_controller
 // require_tree .
