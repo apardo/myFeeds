@@ -16,7 +16,7 @@
         <tbody>
           <tr ng-repeat="item in items">
             <td>{{item.id}}</td>
-            <td>{{item.feed.title}}
+            <td><a href="#/feeds/{{item.feed.id}}">{{item.feed.title}}</a>
             <td><a href="#/items/{{item.id}}">{{item.title}}</td>
           </tr>
         </tbody>

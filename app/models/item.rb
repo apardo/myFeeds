@@ -4,6 +4,8 @@ class Item < ActiveRecord::Base
 
 	belongs_to :feed
 
+	validates :title, :url, uniqueness: true
+
   	# We went to display grandfather by default in the output JSON
   	def as_json(options={})
       super(:include =>[:feed])

@@ -26,7 +26,10 @@ class Api::ItemsController < Api::BaseController
       item.feed = feed
       item.url = d['link']
       item.published_at = d['publishedDate']
-      item.save
+      if item.save
+      else
+        next
+      end
     end
     render :json => {}, status: :ok
   end
