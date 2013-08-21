@@ -5,18 +5,18 @@ angular.module('myFeeds')
 		
 		$scope.create = function() {
 			
-			// Create the feed object to send to the back-end
-        	var feed = new FeedFactory($scope.feed);
+		    // Create the feed object to send to the back-end
+            var feed = new FeedFactory($scope.feed);
 
-        	//Save the forum object
-        	feed.$save(function() {
-        		// Redirect back to /feeds
-        		$location.path('/feeds');
-        	}, function(response) {
-        		//Post response objects to the view
-        		$scope.errors = response.data.errors;
-        	});
-		}
+            //Save the forum object
+            feed.$save(function() {
+        	   // Redirect back to /feeds
+        	   $location.path('/feeds');
+            }, function(response) {
+        	   //Post response objects to the view
+        	   $scope.errors = response.data.errors;
+            });
+	    }
 
 
 	}]);

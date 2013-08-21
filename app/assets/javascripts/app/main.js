@@ -22,6 +22,10 @@ angular.module('myFeeds', ['ngResource'])
 				templateUrl: '/assets/app/views/feeds/new.html',
 				controller: 'FeedsNewCtrl'
 			})
+			.when('/feeds/:id/edit', {
+				templateUrl: '/assets/app/views/feeds/edit.html',
+				controller: 'FeedsEditCtrl'
+			})
 			.when('/feeds/:id', {
 				templateUrl: '/assets/app/views/feeds/show.html',
 				controller: 'FeedsShowCtrl'

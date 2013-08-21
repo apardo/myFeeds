@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+    <div class="col-md-12">
+      <h1>Editar: {{feed.title}}</h1>
+
+<form role="form" ng-controller="FeedsShowCtrl">
+  <div class="form-group">
+    <label for="feed.title">Título</label>
+    <input type="text" class="form-control" id="feed.title" placeholder="Introduce el título" ng-model="feed.title" autofocus>
+  </div>
+  <div class="form-group">
+    <label for="feed.url">URL</label>
+    <input type="url" class="form-control" id="feed.url" placeholder="Introduce la URL del sitio" ng-model="feed.url">
+  </div>
+  <div class="form-group">
+    <label for="feed.feedurl">URL del feed</label>
+    <input type="url" class="form-control" id="feed.feedurl" placeholder="Introduce la URL del feed" ng-model="feed.feedurl">
+  </div>
+  <a class="btn btn-danger" href="#/feeds">Cancelar</a>
+  <button type="submit" class="btn btn-success" ng-click="update(feed)">Actualizar</button>
+</form>
+
+    </div>
+  </div>
+</div>
