@@ -20,6 +20,8 @@ class Api::ItemsController < Api::BaseController
     entries.each do |d|
       item = Item.new(d)
       item.feed = feed
+      item.url = d['link']
+      item.published_at = d['publishedDate']
       item.save
     end
     render :json => {}, status: :ok
