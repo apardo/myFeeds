@@ -24,7 +24,8 @@ angular.module('myFeeds')
                 $http({
                     method: 'POST',
                     url: 'api/items',
-                    data: rss,
+                    //data: rss,
+                    data: [feed.id, rss],
                     headers: {
                         'Content-type': 'application/json'
                     }

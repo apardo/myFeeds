@@ -14,7 +14,14 @@ class Api::ItemsController < Api::BaseController
  
   # POST /items
   def create
-    Item.create(params['entries'])
+    data = params.to_a[0]
+    feed = Feed.find(data[1][0])
+    entries = data[1][1]['entries']
+    entries.each do |d|
+      item = Item.new(d)
+      item.feed = feed
+      item.save
+    end
     render :json => {}, status: :ok
   end
  
