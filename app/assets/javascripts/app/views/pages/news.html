@@ -1,8 +1,29 @@
-<div class="container">
+<div class="container" ng-controller="NewsCtrl">
 	<div class="row">
     <div class="col-md-12">
       <h1>Novedades</h1>
+      <div class="row" style="margin: 20px 0px;">
+        <div class="col-md-12">
 
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Feed</th>
+            <th>Título</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in items">
+            <td>{{item.id}}</td>
+            <td>{{item.feed.title}}
+            <td><a href="#/items/{{item.id}}">{{item.title}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
