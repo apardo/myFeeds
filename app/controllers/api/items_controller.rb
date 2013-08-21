@@ -4,7 +4,7 @@ class Api::ItemsController < Api::BaseController
 
   # GET /items
   def index
-    respond_with :api, Item.order(published_at: :desc)
+    respond_with :api, Item.where(feed_id: params[:feedId]).order(published_at: :desc)
   end
  
   # GET /items/1
