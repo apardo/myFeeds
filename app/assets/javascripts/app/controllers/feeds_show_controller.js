@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('myFeeds')
-	.controller('FeedsShowCtrl', ['$scope', '$location', '$route', '$routeParams', '$http', '$timeout', 'FeedFactory', 'ItemFactory',
-        function($scope, $location, $route, $routeParams, $http, $timeout, FeedFactory, ItemFactory) {
+	.controller('FeedsShowCtrl', ['$scope', '$location', '$route', '$routeParams', '$http', 'FeedFactory', 'ItemFactory',
+        function($scope, $location, $route, $routeParams, $http, FeedFactory, ItemFactory) {
 
         //Grab the feed from the server
         $scope.feed = FeedFactory.get({id: $routeParams.id});
@@ -30,9 +30,7 @@ angular.module('myFeeds')
                         'Content-type': 'application/json'
                     }
                 }).success(function(data, status, headers, config) {
-                    $timeout(function() {
-                        $route.reload();
-                    }, 500);
+                    $route.reload();
                 }).error(function(data, status, headers, config) {
                     console.log("ERROR");
                 });                
