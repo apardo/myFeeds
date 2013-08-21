@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('myFeeds')
-	.controller('FeedsShowCtrl', ['$scope', '$location', '$routeParams', 'FeedFactory', 'ItemFactory',
-        function($scope, $location, $routeParams, FeedFactory, ItemFactory) {
+	.controller('FeedsShowCtrl', ['$scope', '$location', '$route', '$routeParams', '$http', '$timeout', 'FeedFactory', 'ItemFactory',
+        function($scope, $location, $route, $routeParams, $http, $timeout, FeedFactory, ItemFactory) {
 
         //Grab the feed from the server
         $scope.feed = FeedFactory.get({id: $routeParams.id});
@@ -21,9 +21,20 @@ angular.module('myFeeds')
 
         $scope.fetchFeed = function(feed) {
             parseRSS(feed.feedurl, function(rss) {
-                //var baseItems = Restangular.all('items');
-                //baseItems.post(rss.entries);
-                console.log(rss);
+                $http({
+                    method: 'POST',
+                    url: 'api/items',
+                    data: rss,
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                }).success(function(data, status, headers, config) {
+                    $timeout(function() {
+                        $route.reload();
+                    }, 500);
+                }).error(function(data, status, headers, config) {
+                    console.log("ERROR");
+                });                
             });
         }
 

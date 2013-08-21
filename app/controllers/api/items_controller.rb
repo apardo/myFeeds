@@ -2,19 +2,20 @@ class Api::ItemsController < Api::BaseController
 
   before_action :set_item, only: [:show, :update, :destroy]
 
-  # GET /feeds
+  # GET /items
   def index
     respond_with :api, Item.order(published_at: :desc)
   end
  
-  # GET /feeds/1
+  # GET /items/1
   def show
     respond_with :api, @item
   end
  
-  # POST /feeds
+  # POST /items
   def create
-    respond_with :api, Feed.create(feed_params)
+    Item.create(params['entries'])
+    render :json => {}, status: :ok
   end
  
   # PATCH/PUT /feeds/1
@@ -36,6 +37,6 @@ class Api::ItemsController < Api::BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def feed_params
-    params.require(:feed).permit(:title, :url, :feedurl)
+    params.require(:item).permit(:title, :url, :content, :published_at)
   end
 end
