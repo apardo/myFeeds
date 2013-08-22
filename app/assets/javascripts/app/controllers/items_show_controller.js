@@ -9,6 +9,7 @@ angular.module('myFeeds')
 
         	$scope.item = result;
             getFacebookData();
+            getTwitterData();
 
         });
 
@@ -28,5 +29,23 @@ angular.module('myFeeds')
                 }
             });
         }
+
+        function getTwitterData() {
+            // get number of twitter shares
+            var feedUrl = encodeURIComponent($scope.item.url);
+            $.ajax({
+                type: 'GET',
+                url: 'https://cdn.api.twitter.com/1/urls/count.json?callback=?&url='+feedUrl,
+                dataType: 'json',
+                success: function(data) {
+                    $scope.twdata = data.count;
+                    $scope.$apply();
+                },
+                error: function(data) {
+                    console.log("ERROR");
+                }
+            });
+        }
+
 
 	}]);
