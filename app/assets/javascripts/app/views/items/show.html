@@ -6,8 +6,8 @@
    	      <h1>{{item.title}}</h1>
       		<button class="btn btn-warning btn-xs" ng-controller="ApplicationCtrl" ng-click="historyBack()">Volver</button>
           <a href="{{item.url}}" class="btn btn-info btn-xs">Ir a entrada original</a>
-          <a>Facebook <span class="badge">{{fbdata}}</span></a>
-          <a>Twitter <span class="badge">{{twdata}}</span></a>
+          <span class="my-badge">Facebook {{fbdata}}</span>
+          <span class="my-badge">Twitter {{twdata}}</span>
       	</div>
       </div>
       <div class="row" style="margin-top: 10px;">
