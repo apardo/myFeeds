@@ -8,20 +8,25 @@ angular.module('myFeeds')
         var getItem = ItemFactory.get({id: $routeParams.id}, function(result) {
 
         	$scope.item = result;
-        	var feedUrl = encodeURIComponent($scope.item.url);
+            getFacebookData();
 
-        	$.ajax({
-        		type: 'GET',
-        		url: 'http://graph.facebook.com/',
-        		data: 'id=' + feedUrl,
-        		success: function(data) {
-        			console.log(data);
-        		},
-        		error: function() {
-        			console.log("ERROR");
-        		}
-        	});
         });
 
-    
+        function getFacebookData() {
+            // get number of facebook shares
+            var feedUrl = encodeURIComponent($scope.item.url);
+            $.ajax({
+                type: 'GET',
+                url: 'http://graph.facebook.com/',
+                data: 'id=' + feedUrl,
+                success: function(data) {
+                    $scope.fbdata = data.shares;
+                    $scope.$apply();
+                },
+                error: function() {
+                    console.log("ERROR");
+                }
+            });
+        }
+
 	}]);
