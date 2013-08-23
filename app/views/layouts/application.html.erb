@@ -2,6 +2,7 @@
 <html lang="es" ng-app="myFeeds">
   <head>
   	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>myFeeds</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -40,6 +41,7 @@
               </ul>
             </li>
           </ul>
+          <a class="navbar-right" href="#" id="loginPersona" ng-click="login()"><%= image_tag('persona_sign_in_blue.png') %></a>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -56,6 +58,7 @@
     </div>
 
 	<%= javascript_include_tag "application" %>
+  <script src="//login.persona.org/include.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   </body>
 </html>

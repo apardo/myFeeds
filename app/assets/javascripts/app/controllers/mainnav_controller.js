@@ -12,4 +12,15 @@ angular.module('myFeeds')
   		$("#" + item).addClass("active");
   	}
 
+    // login  with mozilla persona
+    $scope.login = function() {
+        navigator.id.request();
+    } 
+
+    // logout
+    $scope.logout = function() {
+        navigator.id.logout();
+    }
+
   }]);
+

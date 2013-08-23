@@ -4,6 +4,9 @@ Myfeeds::Application.routes.draw do
     resources :feeds, only: [:index, :show, :create, :update, :destroy]
     resources :items, only: [:index, :show, :create, :update, :destroy]
   end
+
+  post 'auth/login' => 'sessions#create'
+  post 'auth/logout' => 'sessions#destroy'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

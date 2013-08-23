@@ -45,3 +45,6 @@ gem 'pry-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'rest-client'
+gem 'json'

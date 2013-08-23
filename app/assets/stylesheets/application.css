@@ -37,3 +37,8 @@ body {
 	background-color: #ebebeb;
 	border-radius: 5px;
 }
+
+#loginPersona img {
+	margin-top: 11px;
+	@extend .navbar-right;
+}
