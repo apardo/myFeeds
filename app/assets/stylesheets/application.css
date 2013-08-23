@@ -38,7 +38,6 @@ body {
 	border-radius: 5px;
 }
 
-#loginPersona img {
+#loginPersona img, #logoutPersona {
 	margin-top: 11px;
-	@extend .navbar-right;
 }

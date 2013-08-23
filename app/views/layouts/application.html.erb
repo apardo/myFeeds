@@ -41,7 +41,12 @@
               </ul>
             </li>
           </ul>
-          <a class="navbar-right" href="#" id="loginPersona" ng-click="login()"><%= image_tag('persona_sign_in_blue.png') %></a>
+          <% unless session[:email] %>
+            <a class="navbar-right" href="#" id="loginPersona" ng-click="login()"><%= image_tag('persona_sign_in_blue.png') %></a>
+          <% else %>
+            <button type="button" id="logoutPersona" ng-click="logout()" class="navbar-right btn btn-xs btn-danger">Logout</button>
+          <% end %>
+
         </div><!--/.navbar-collapse -->
       </div>
     </div>

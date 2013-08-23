@@ -48,10 +48,14 @@ $(function() {
         url: '/auth/login', // This is a URL on your website.
         data: {assertion: assertion},
         //success: function(res, status, xhr) { window.location.reload(); },
-        success: function(res, status, xhr) { alert('Estas logeado en Persona'); },
+        success: function(res, status, xhr) { 
+          console.log("myFeeds: Login con éxito.");
+          $("#loginPersona").remove();
+          $("#mpersona").append('<button type="button" id="logoutPersona" ng-click="logout()" class="navbar-right btn btn-xs btn-danger">Logout</button>');
+        },
         error: function(xhr, status, err) {
           navigator.id.logout();
-          alert("Login failure: " + err);
+          alert("myFeeds: " + err);
         }
       });
     },
@@ -64,8 +68,12 @@ $(function() {
         type: 'POST',
         url: '/auth/logout', // This is a URL on your website.
         //success: function(res, status, xhr) { window.location.reload(); },
-        success: function(res, status, xhr) { alert("Estas desconectado de Persona"); },
-        error: function(xhr, status, err) { alert("Logout failure: " + err); }
+        success: function(res, status, xhr) {
+          console.log("myFeeds: Logout con éxito");
+          $("#logoutPersona").remove();
+          $("#mpersona").append('<a class="navbar-right" href="#" id="loginPersona" ng-click="login()"><img src="/assets/persona_sign_in_blue.png"/></a>');
+        },
+        error: function(xhr, status, err) { alert("myFeeds: Logout failure: " + err); }
       });
     }
   
